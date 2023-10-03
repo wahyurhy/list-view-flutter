@@ -39,20 +39,23 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: ListView(
-          children: numberList.map((number) {
+        body: ListView.builder(
+          itemCount: numberList.length,
+          itemBuilder: (BuildContext context, int index) {
             return Container(
               height: 250,
               decoration: BoxDecoration(
-                  color: Colors.grey, border: Border.all(color: Colors.black)),
+                color: Colors.grey,
+                border: Border.all(color: Colors.black),
+              ),
               child: Center(
                 child: Text(
-                  '$number',
+                  '${numberList[index]}',
                   style: const TextStyle(fontSize: 50),
                 ),
               ),
             );
-          }).toList(),
+          },
         )
     );
   }
