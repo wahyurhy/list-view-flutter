@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: ListView.builder(
+        body: ListView.separated(
           itemCount: numberList.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
@@ -56,7 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
           },
-        )
-    );
+          separatorBuilder: (BuildContext context, int index) {
+            return const Divider();
+          },
+        ));
   }
 }
